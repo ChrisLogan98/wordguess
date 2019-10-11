@@ -18,12 +18,14 @@ private:
 	string _playerWord;
 	string _gameWord;
 	int _attemptsLeft;
+	int win, loss;
 	vector<char> _wrongChars;
-	char promptUser();
+	char promptUser(char letter);
 public:
 	CurrentGame(){}
 	void reset(string newWord);
 	int play();
+	int placeLetter(char letter);
 };
 
 #endif /* CURRENTGAME_H_ */

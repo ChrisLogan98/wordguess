@@ -3,7 +3,7 @@ void Dictionary::buildDictionary(){
 	string word;
 	ifstream infile("words.txt");
 	if (!infile){
-		cout << "Severe error opening words.dat" << endl;
+		cout << "Severe error opening words.txt" << endl;
 	    exit(-1);
 	}
 

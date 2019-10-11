@@ -39,7 +39,6 @@ int main(){
 		cout << "Would you like to play the WordGuess Game? Y/N" << endl;
 		cin >> choice;
 	}
-
 }
 
 

@@ -39,12 +39,19 @@ void printWrongGuesses(){
 
 }
 
-int placeLetter(char letter){
+int CurrentGame::placeLetter(char letter){
 	// Search through _gameWord to see if letter appears
 	// If found, _playerWord will be updated with the letter in the same position as found in _gameWord
 	// (all positions found will be updated)
 	// _attemptsLeft will be decremented
-
+	for (int i=0; i< _playerWord.length(); i++){
+		if(letter == _gameWord[i]){
+			_playerWord[i] = letter;
+		}
+		else{
+			_attemptsLeft--;
+		}
+	}
 
 
 
@@ -56,11 +63,20 @@ int placeLetter(char letter){
 	//   -1 if it does not match and _attemptsLeft is 0
 	//    0 otherwise (play continues)
 
+	if(_playerWord == _gameWord){
+		returnVal = 1;
+	}
+	else if(_playerWord != _gameWord && _attemptsLeft == 0){
+		returnVal = -1;
+	}
+
 	return returnVal;
 }
 int CurrentGame::play(){
 	char letter;
 	int status = 0;
+	int win = 0;
+	int loss = 0;
 
 	while (status == 0){
 		letter = promptUser();
